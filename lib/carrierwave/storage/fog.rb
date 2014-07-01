@@ -329,7 +329,6 @@ module CarrierWave
           pp new_file
           pp "TRACE:"
           pp e.backtrace.join("\n")
-          retry
         end
 
         ##
