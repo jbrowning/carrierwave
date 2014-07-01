@@ -325,6 +325,8 @@ module CarrierWave
           true
         rescue NoMethodError => e
           pp "==== DANGER DANGER ===="
+          pp "Error:"
+          pp e
           pp "FILE:"
           pp new_file
           pp "TRACE:"
