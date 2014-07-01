@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require "fog" unless defined?(::Fog)
+require "pp"
 
 module CarrierWave
   module Storage
@@ -322,6 +323,13 @@ module CarrierWave
             fog_file.close if fog_file && !fog_file.closed?
           end
           true
+        rescue NoMethodError => e
+          pp "==== DANGER DANGER ===="
+          pp "FILE:"
+          pp new_file
+          pp "TRACE:"
+          pp e.backtrace.join("\n")
+          retry
         end
 
         ##
